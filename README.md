@@ -64,8 +64,8 @@ rake db:migrate
 Do these steps from the terminal tab where you logged into your virtualbox:
 
 ```
-cd /srv/bk/openblog
-rails s - b 0.0.0.0
+cd /srv/openblog
+rails s -b 0.0.0.0
 ```
 
 ### Visit the site in your browser
