@@ -1,0 +1,11 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+LineLength:
+  Max: 120
+  Exclude: 
+    - 'config/initializers/devise.rb'
+
+BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'

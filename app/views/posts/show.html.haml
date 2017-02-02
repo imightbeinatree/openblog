@@ -1,0 +1,48 @@
+#post
+  %h2.underlined.page_heading.post_title= @post.title
+  %h3.byline= "by #{@post.author.display_name}"
+  %h4.publish_date= published_date(@post.created_at)
+  %p= raw h(@post.body).gsub(/\n/, '<br/>')
+
+  #new_comment_form.hidden
+    = render 'comments/form', comment: @comment
+
+  %h3.underlined Comments
+
+  %button#new_comment.btn.btn-success.pull-right Add a Comment
+
+  - if @post.comments.count > 0
+    - @post.comments.oldest.each do |comment|
+      %p{id: "comment_#{comment.id}"}
+        = raw h(comment.body).gsub(/\n/, '<br/>')
+        %br/
+        %strong= "- #{comment.author.display_name}"
+        %br/
+        = published_date(comment.created_at)
+  - else
+    %p
+      %em There are currently no comments!
+
+  - if @comment.errors.count > 0
+    :javascript
+      $(document).ready( function() {
+        $('div#new_comment_form').removeClass('hidden');
+        $('html, body').animate({
+          scrollTop: $("div#new_comment_form").offset().top
+        }, 200);
+      });
+
+  :javascript
+    $(document).ready( function() {
+      $('button#new_comment').click(function(event) {
+        event.preventDefault();
+        $('div#new_comment_form').removeClass('hidden');
+        $('button#new_comment').addClass('hidden');
+      });
+      $('button#cancel_new_comment').click(function(event) {
+        event.preventDefault();
+        $('div#new_comment_form').addClass('hidden');
+        $('button#new_comment').removeClass('hidden');
+      });
+    
+    });

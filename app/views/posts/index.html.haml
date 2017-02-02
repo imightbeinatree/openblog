@@ -1,0 +1,22 @@
+%h2.underlined.page_heading All Posts
+= link_to 'New Post', new_post_path, class: 'btn btn-success pull-right'
+- if @posts.count > 0
+  %table.table.table-striped#all_posts
+    %thead
+      %tr
+        %th Post
+        %th Author
+        %th Date
+        %th Comments
+    %tbody
+      - @posts.each do |post|
+        %tr
+          %td
+            %strong= link_to post.title, post_path(post.id)
+          %td= post.author.display_name
+          %td= published_date(post.created_at)
+          %td= post.comments.count
+  = paginate @posts
+- else
+  %p
+    %em There are currently no posts.

@@ -1,0 +1,23 @@
+%h2.underlined.page_heading My Posts
+= link_to 'New Post', new_post_path, class: 'btn btn-success pull-right'
+- if @posts.count > 0
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Post
+        %th Date
+        %th Comments
+        %th Edit
+    %tbody
+      - @posts.each do |post|
+        %tr
+          %td
+            %strong= link_to post.title, post_path(post.id)
+          %td= published_date(post.created_at)
+          %td= post.comments.count
+          %td= link_to 'edit', edit_post_path(post.id)
+  = paginate @posts
+- else
+  %p
+    %em You haven't written any posts.
+    = link_to 'Write one now!', new_post_path

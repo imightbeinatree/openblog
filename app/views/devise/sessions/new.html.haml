@@ -1,0 +1,24 @@
+%h2.underlined.page_heading Log In
+
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .form-group
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, class: 'form-control'
+
+  .form-group
+    = f.label :password
+    %br/
+    = f.password_field :password, autocomplete: "off", class: 'form-control'
+
+  - if devise_mapping.rememberable?
+    .form-group
+      <label for="user_remember_me">
+      = f.check_box :remember_me
+      Remember Me
+      </label>
+
+  .actions
+    = f.submit "Log In", class: 'btn btn-success'
+
+= render "devise/shared/links"

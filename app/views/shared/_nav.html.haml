@@ -1,0 +1,8 @@
+= link_to 'All Posts', posts_path
+- if current_user
+  = link_to 'My Posts', my_posts_path
+  = link_to 'Edit Profile', edit_registration_path(:user)
+  = link_to "Log Out #{current_user.display_name}", destroy_user_session_path, method: :delete
+- else
+  = link_to "Log In", new_session_path(:user)
+  = link_to "Sign Up", new_registration_path(:user)

@@ -1,0 +1,34 @@
+.nav {
+  text-align: right;
+  margin-top: 22px;
+}
+
+.nav a {
+  margin-left: 40px;
+}
+
+.underlined {
+  border-bottom: 1px solid #000;
+}
+
+h1.site_name {
+  margin-bottom: 20px;
+}
+
+h2.page_heading {
+  margin-top: 5px;
+}
+
+h2.post_title {
+  margin-bottom: 0px;
+}
+
+h3.byline {
+  margin: 0px;
+  font-size: 125%;
+}
+
+h4.publish_date {
+  font-size: 100%;
+  margin-top: 0px;
+}
