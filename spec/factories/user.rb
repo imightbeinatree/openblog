@@ -4,5 +4,6 @@ FactoryGirl.define do
     last_name  'Doe'
     email 'tester@tester.com'
     password '123456'
+    confirmed_at DateTime.current
   end
 end
