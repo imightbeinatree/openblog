@@ -32,3 +32,7 @@ h4.publish_date {
   font-size: 100%;
   margin-top: 0px;
 }
+
+#page_container {
+  max-width: 1024px;
+}
