@@ -7,5 +7,5 @@ class Comment < ActiveRecord::Base
   validates :post, presence: true
   validates :body, presence: true
 
-  scope :oldest, -> { order(:created_at) }
+  scope :latest, -> { order('created_at desc') }
 end

@@ -12,7 +12,7 @@
   %button#new_comment.btn.btn-success.pull-right Add a Comment
 
   - if @post.comments.count > 0
-    - @post.comments.oldest.each do |comment|
+    - @post.comments.latest.each do |comment|
       %p{id: "comment_#{comment.id}"}
         = raw h(comment.body).gsub(/\n/, '<br/>')
         %br/
